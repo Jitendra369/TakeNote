@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NoteService } from '../../service/note.service';
 import { User } from '../../model/user';
-import { JsonPipe, NgFor } from '@angular/common';
+import { JsonPipe, NgFor, NgIf, NgClass, CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
-  imports: [NgFor, JsonPipe],
+  imports: [NgFor, JsonPipe, NgIf, NgClass, CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
 
   allUsersNotes: User[] = [];
   loggedInUserNotes!: User;
+  isSidebarOpen: boolean = true;
 
   constructor(private _noteService: NoteService) {
 
@@ -21,6 +22,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getLoggedInUserNotes('4ec84d44-4ae3-4a66-87a7-fccbae35f824');
+  }
+
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
   }
 
   // get all user all notes 
