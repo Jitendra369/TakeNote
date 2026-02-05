@@ -1,9 +1,19 @@
 <div class="container">
 
-    <!-- HEADER -->
-    <div class="header">
-        TakeNote
-    </div>
+    <!-- HEADER BAR -->
+    <header class="header-bar">
+        <div class="logo-area">
+            <a routerLink="/" class="logo">TakeNote</a>
+        </div>
+        <div class="action-area">
+            <button class="btn btn-add" routerLink="/add-note">
+                <i class="bi bi-plus-lg"></i> Add Note
+            </button>
+            <button class="btn btn-log" routerLink="/log">
+                <i class="bi bi-activity"></i> Activity Log
+            </button>
+        </div>
+    </header>
 
     <!-- MAIN LAYOUT -->
     <div class="main-layout">

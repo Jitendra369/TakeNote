@@ -2,10 +2,11 @@ import { Component, OnInit, signal } from '@angular/core';
 import { NoteService } from '../../service/note.service';
 import { User } from '../../model/user';
 import { CommonModule } from '@angular/common';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink, RouterOutlet],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
