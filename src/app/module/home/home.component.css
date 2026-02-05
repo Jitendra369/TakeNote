@@ -34,7 +34,7 @@ body {
     background: #ffffff;
     border-radius: 14px;
     padding: 16px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     flex-shrink: 0;
 }
 
@@ -126,7 +126,7 @@ body {
     background: #ffffff;
     border-radius: 14px;
     padding: 18px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
 .card-header {
@@ -143,8 +143,13 @@ body {
     color: #fff;
 }
 
-.tag.red { background: #ff6b6b; }
-.tag.gray { background: #9e9e9e; }
+.tag.red {
+    background: #ff6b6b;
+}
+
+.tag.gray {
+    background: #9e9e9e;
+}
 
 .journal {
     font-size: 13px;
@@ -167,4 +172,59 @@ body {
     gap: 16px;
     font-size: 14px;
     color: #777;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .sidebar {
+        width: 240px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .main-layout {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .sidebar {
+        width: 100%;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+
+    .header {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .title {
+        font-size: 16px;
+    }
+
+    .description {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .profile img {
+        width: 36px;
+        height: 36px;
+    }
 }

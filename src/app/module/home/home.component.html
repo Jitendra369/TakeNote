@@ -1,24 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>TakeNote Layout</title>
-</head>
-<body>
-
 <div class="container">
 
     <!-- HEADER -->
     <div class="header">
         TakeNote
     </div>
-
-    <!-- {{allUsersNotes | json}} -->
-
-    <!-- <div>
-        <p *ngFor="let user of allUsersNotes"> {{user.firstName}}</p>
-    </div> -->
-   
 
     <!-- MAIN LAYOUT -->
     <div class="main-layout">
@@ -31,7 +16,6 @@
                 <img src="https://i.pravatar.cc/100?img=12" alt="Profile">
                 <div class="profile-info">
                     <h4>{{loggedInUserNotes.firstName}} {{loggedInUserNotes.lastName}}</h4>
-                    <!-- <span class="status">{{loggedInUserNotes.email}}</span><br> -->
                     <span class="status">Available</span>
                 </div>
                 <span class="arrow">⌄</span>
@@ -145,6 +129,3 @@
 
     </div>
 </div>
-
-</body>
-</html>
