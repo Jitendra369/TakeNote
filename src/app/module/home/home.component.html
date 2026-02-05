@@ -18,116 +18,116 @@
                     <h4>{{loggedInUserNotes.firstName}} {{loggedInUserNotes.lastName}}</h4>
                     <span class="status">Available</span>
                 </div>
-                <span class="arrow" (click)="toggleSidebar()" [ngClass]="{'rotated': !isSidebarOpen}">⌄</span>
+                <span class="arrow" (click)="toggleSidebar()" [class.rotated]="!isSidebarOpen()">⌄</span>
             </div>
 
             <!-- Library -->
-            <div *ngIf="isSidebarOpen">
-                <div class="section">
-                    <p class="section-title">Library</p>
+            @if (isSidebarOpen()) {
+            <div class="section">
+                <p class="section-title">Library</p>
 
-                    <div class="item">
-                        <span>📄 Notes</span>
-                        <span class="count">541</span>
-                    </div>
-
-                    <div class="item">
-                        <span>📚 Collections</span>
-                        <span class="count">14</span>
-                    </div>
-
-                    <div class="item">
-                        <span>🗂 Projects</span>
-                        <span class="count">8</span>
-                    </div>
-
-                    <div class="item">
-                        <span>🗄 Archives</span>
-                    </div>
+                <div class="item">
+                    <span>📄 Notes</span>
+                    <span class="count">541</span>
                 </div>
 
-                <!-- Pinned -->
-                <div class="section">
-                    <p class="section-title">Pinned</p>
-                    <div class="sub-item">📄 The patterns of nature</div>
-                    <div class="sub-item">📄 Overconfidence</div>
-                    <div class="sub-item active">📁 Overconfidence and...</div>
+                <div class="item">
+                    <span>📚 Collections</span>
+                    <span class="count">14</span>
                 </div>
 
-                <!-- Opened -->
-                <div class="section">
-                    <p class="section-title">Opened</p>
-                    <div class="sub-item">📄 The patterns of nature</div>
-                    <div class="sub-item">📄 Overconfidence</div>
-                    <div class="sub-item">📁 Overconfidence and...</div>
+                <div class="item">
+                    <span>🗂 Projects</span>
+                    <span class="count">8</span>
+                </div>
+
+                <div class="item">
+                    <span>🗄 Archives</span>
                 </div>
             </div>
 
-        </aside>
-
-        <!-- CONTENT -->
-        <main class="card-container">
-
-            <div class="card">
-                <div class="card-header">
-                    <span class="tag red">2021</span>
-                    <span class="journal">Trends in Cognitive Sciences</span>
-                </div>
-
-                <h3 class="title">Lejarraga and Hertwig</h3>
-
-                <p class="description">
-                    How experimental methods shaped views on human competence and rationality.
-                    <br><br>
-                    Sound statistical intuitions are essential for navigating an uncertain world.
-                </p>
-
-                <div class="card-footer">
-                    <span>👍 14</span>
-                    <span>💬</span>
-                    <span>🔖</span>
-                </div>
+            <!-- Pinned -->
+            <div class="section">
+                <p class="section-title">Pinned</p>
+                <div class="sub-item">📄 The patterns of nature</div>
+                <div class="sub-item">📄 Overconfidence</div>
+                <div class="sub-item active">📁 Overconfidence and...</div>
             </div>
 
-            <div class="card">
-                <div class="card-header">
-                    <span class="tag gray">2019</span>
-                    <span class="journal">Psychological Review</span>
-                </div>
-
-                <h3 class="title">Spiliopoulos and Hertwig</h3>
-
-                <p class="description">
-                    A Map of Ecologically Rational Heuristics for Uncertain Strategic Worlds.
-                </p>
-
-                <div class="card-footer">
-                    <span>👍 14</span>
-                    <span>💬</span>
-                    <span>🔖</span>
-                </div>
+            <!-- Opened -->
+            <div class="section">
+                <p class="section-title">Opened</p>
+                <div class="sub-item">📄 The patterns of nature</div>
+                <div class="sub-item">📄 Overconfidence</div>
+                <div class="sub-item">📁 Overconfidence and...</div>
             </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <span class="tag gray">2019</span>
-                    <span class="journal">Psychological Review</span>
-                </div>
-
-                <h3 class="title">Spiliopoulos and Hertwig</h3>
-
-                <p class="description">
-                    The ecological rationality of heuristics in strategic decision making.
-                </p>
-
-                <div class="card-footer">
-                    <span>👍 14</span>
-                    <span>💬</span>
-                    <span>🔖</span>
-                </div>
-            </div>
-
-        </main>
-
     </div>
+
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="card-container">
+
+        <div class="card">
+            <div class="card-header">
+                <span class="tag red">2021</span>
+                <span class="journal">Trends in Cognitive Sciences</span>
+            </div>
+
+            <h3 class="title">Lejarraga and Hertwig</h3>
+
+            <p class="description">
+                How experimental methods shaped views on human competence and rationality.
+                <br><br>
+                Sound statistical intuitions are essential for navigating an uncertain world.
+            </p>
+
+            <div class="card-footer">
+                <span>👍 14</span>
+                <span>💬</span>
+                <span>🔖</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="tag gray">2019</span>
+                <span class="journal">Psychological Review</span>
+            </div>
+
+            <h3 class="title">Spiliopoulos and Hertwig</h3>
+
+            <p class="description">
+                A Map of Ecologically Rational Heuristics for Uncertain Strategic Worlds.
+            </p>
+
+            <div class="card-footer">
+                <span>👍 14</span>
+                <span>💬</span>
+                <span>🔖</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="tag gray">2019</span>
+                <span class="journal">Psychological Review</span>
+            </div>
+
+            <h3 class="title">Spiliopoulos and Hertwig</h3>
+
+            <p class="description">
+                The ecological rationality of heuristics in strategic decision making.
+            </p>
+
+            <div class="card-footer">
+                <span>👍 14</span>
+                <span>💬</span>
+                <span>🔖</span>
+            </div>
+        </div>
+
+    </main>
+
+</div>
 </div>
