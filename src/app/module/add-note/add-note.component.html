@@ -1,0 +1,92 @@
+<div class="add-note-container">
+    <div class="form-card">
+        <div class="form-header">
+            <h1 class="form-title">
+                <i class="bi bi-journal-plus"></i>
+                Create New Note
+            </h1>
+            <p class="form-subtitle">Capture your thoughts with rich formatting</p>
+        </div>
+
+        <form [formGroup]="noteForm" (ngSubmit)="onSubmit()" class="note-form">
+            <!-- Error Message -->
+            <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+                <i class="bi bi-exclamation-triangle-fill"></i>
+                {{ errorMessage }}
+            </div>
+
+            <!-- Title Field -->
+            <div class="form-group">
+                <label for="title" class="form-label">
+                    <i class="bi bi-pencil"></i>
+                    Title
+                    <span class="required">*</span>
+                </label>
+                <input type="text" id="title" formControlName="title" class="form-control"
+                    placeholder="Enter note title..." [class.is-invalid]="title?.invalid && title?.touched" />
+                <div *ngIf="title?.invalid && title?.touched" class="invalid-feedback">
+                    <span *ngIf="title?.errors?.['required']">Title is required</span>
+                    <span *ngIf="title?.errors?.['minlength']">Title must be at least 3 characters</span>
+                </div>
+            </div>
+
+            <!-- Rich Text Editor -->
+            <div class="form-group">
+                <label for="content" class="form-label">
+                    <i class="bi bi-file-text"></i>
+                    Content
+                    <span class="required">*</span>
+                </label>
+                <div #editor class="quill-editor" [class.is-invalid]="content?.invalid && content?.touched"></div>
+                <div *ngIf="content?.invalid && content?.touched" class="invalid-feedback d-block">
+                    Content is required
+                </div>
+            </div>
+
+            <!-- Favorite and Notification Date Row -->
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="form-check custom-checkbox">
+                            <input type="checkbox" id="favourite" formControlName="favourite"
+                                class="form-check-input" />
+                            <label for="favourite" class="form-check-label">
+                                <i class="bi bi-star-fill"></i>
+                                Mark as Favorite
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="notificationDate" class="form-label">
+                            <i class="bi bi-bell"></i>
+                            Notification Date
+                        </label>
+                        <input type="datetime-local" id="notificationDate" formControlName="notificationDate"
+                            class="form-control" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="form-actions">
+                <button type="button" class="btn btn-cancel" (click)="onCancel()" [disabled]="isSubmitting">
+                    <i class="bi bi-x-circle"></i>
+                    Cancel
+                </button>
+                <button type="submit" class="btn btn-submit" [disabled]="noteForm.invalid || isSubmitting">
+                    <span *ngIf="!isSubmitting">
+                        <i class="bi bi-check-circle"></i>
+                        Create Note
+                    </span>
+                    <span *ngIf="isSubmitting">
+                        <span class="spinner-border spinner-border-sm me-2"></span>
+                        Creating...
+                    </span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,117 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f6f8;
+    margin: 0;
+    padding: 0;
+}
+
+.activity-container {
+    max-width: 1000px;   /* increased width */
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+}
+
+.page-title {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.activity-item {
+    display: flex;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+.avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.activity-content {
+    flex: 1;
+}
+
+.activity-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.username {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.time {
+    font-size: 12px;
+    color: #999;
+}
+
+.activity-text {
+    margin-top: 5px;
+    color: #444;
+}
+
+.activity-extra {
+    margin-top: 6px;
+    font-size: 13px;
+    color: #007bff;
+    cursor: pointer;
+}
+
+.attachment {
+    margin-top: 10px;
+}
+
+.attachment img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+/* ADD LOG SECTION */
+.add-log {
+    margin-top: 30px;
+    padding-top: 20px;
+    /* border-top: 1px solid #e6e6e6; */
+}
+
+.add-log textarea {
+    width: 100%;
+    min-height: 90px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    resize: vertical;
+    outline: none;
+}
+
+.add-log textarea:focus {
+    border-color: #007bff;
+}
+
+.add-btn {
+    margin-top: 10px;
+    padding: 10px 18px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.add-btn:hover {
+    background-color: #0056b3;
+}

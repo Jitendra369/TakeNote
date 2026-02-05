@@ -1,0 +1,54 @@
+<div class="activity-container">
+
+    <h2 class="page-title">Activity Log</h2>
+
+    <!-- LOG ITEM -->
+    <div *ngFor="let log of logs" class="activity-item">
+        <img src="https://i.pravatar.cc/50?img=3" class="avatar" alt="user">
+
+        <div class="activity-content">
+            <div class="activity-header">
+                <span class="username">Jitendra Kadu</span>
+                <span class="time"> <b>{{log.createdDate | date:'MMMM d, y'}}</b></span>
+            </div>
+
+            <div class="activity-text">
+                <span>{{log.content}}</span>
+            </div>
+
+            <!-- <div class="activity-extra">
+                +3 more changes
+            </div> -->
+        </div>
+    </div>
+    
+    <p></p>
+
+
+    <!-- ADD LOG SECTION -->
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <div class="add-log">
+            <textarea formControlName="content" placeholder="Write a new log..."></textarea>
+
+        </div>
+
+        <!-- dropdown list of the log category  -->
+        <div>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    {{selectedCategory.name}}
+                </button>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-item" (click)="getSelectdLogCategory(cat)" *ngFor="let cat of logCateg">{{cat.name}}</li>
+                </ul>
+            </div>
+        </div>
+
+        <button class="add-btn">Add Log</button>
+
+    </form>
+
+
+
+</div>
