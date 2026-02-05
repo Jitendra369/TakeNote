@@ -11,8 +11,8 @@ import { CommonModule } from '@angular/common';
 })
 export class HomeComponent implements OnInit {
 
-  allUsersNotes: User[] = [];
-  loggedInUserNotes!: User;
+  allUsersNotes = signal<User[]>([]);
+  loggedInUserNotes = signal<User | null>(null);
   isSidebarOpen = signal(true);
 
   constructor(private _noteService: NoteService) {
@@ -26,19 +26,18 @@ export class HomeComponent implements OnInit {
 
   toggleSidebar() {
     this.isSidebarOpen.update(v => !v);
-    console.log('Sidebar toggle clicked. New state:', this.isSidebarOpen());
+    console.log('Sidebar toggle signal updated:', this.isSidebarOpen());
   }
 
   // get all user all notes 
   getAllUserNotes() {
     this._noteService.getAllUserNotes().subscribe({
       next: (data) => {
-        // debugger
-        console.log('sucess call ' + data);
-        this.allUsersNotes = data;
+        console.log('Success fetching all notes:', data);
+        this.allUsersNotes.set(data);
       },
       error: (error) => {
-        console.log("error while fetching the note API ,error " + error);
+        console.log("Error fetching all notes:", error);
       }
     })
   }
@@ -46,17 +45,13 @@ export class HomeComponent implements OnInit {
   getLoggedInUserNotes(id: string) {
     this._noteService.getUserById(id).subscribe({
       next: (data) => {
-        console.log(data);
-        this.loggedInUserNotes = data;
-
+        console.log('Login user data received:', data);
+        this.loggedInUserNotes.set(data);
       },
       error: (error) => {
-        console.log(error);
-
+        console.log('Error fetching user data:', error);
       }
     })
   }
-
-
 
 }

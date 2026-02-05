@@ -11,15 +11,21 @@
         <!-- SIDEBAR -->
         <aside class="sidebar">
 
+            @if (loggedInUserNotes(); as user) {
             <!-- Profile -->
             <div class="profile">
                 <img src="https://i.pravatar.cc/100?img=12" alt="Profile">
                 <div class="profile-info">
-                    <h4>{{loggedInUserNotes.firstName}} {{loggedInUserNotes.lastName}}</h4>
+                    <h4>{{user.firstName}} {{user.lastName}}</h4>
                     <span class="status">Available</span>
                 </div>
                 <span class="arrow" (click)="toggleSidebar()" [class.rotated]="!isSidebarOpen()">⌄</span>
             </div>
+            } @else {
+            <div class="profile loading" style="padding: 10px; color: #888;">
+                <span>Loading profile...</span>
+            </div>
+            }
 
             <!-- Library -->
             @if (isSidebarOpen()) {
